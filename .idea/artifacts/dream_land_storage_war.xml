@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="dream-land-storage:war">
-    <output-path>$PROJECT_DIR$/dream-land-storage/target</output-path>
-    <root id="archive" name="dream-land-storage.war">
-      <element id="artifact" artifact-name="dream-land-storage:war exploded" />
-    </root>
-  </artifact>
-</component>

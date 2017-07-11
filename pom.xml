@@ -50,7 +50,7 @@
     <module>dream-land-common</module>
     <module>dream-land-storage</module>
     <module>dream-land-service</module>
-    <module>dream-land-font</module>
+    <module>dream-land-webui-font</module>
     <module>dream-land-api-font</module>
   </modules>
 

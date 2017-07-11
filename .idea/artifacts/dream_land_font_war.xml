@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="dream-land-font:war">
-    <output-path>$PROJECT_DIR$/dream-land-font/target</output-path>
-    <root id="archive" name="dream-land-font.war">
-      <element id="artifact" artifact-name="dream-land-font:war exploded" />
-    </root>
-  </artifact>
-</component>

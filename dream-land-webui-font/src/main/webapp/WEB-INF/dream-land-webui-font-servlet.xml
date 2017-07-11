@@ -1,0 +1,134 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/mvc
+  	http://www.springframework.org/schema/mvc/spring-mvc.xsd
+  	http://www.springframework.org/schema/security
+  	http://www.springframework.org/schema/security/spring-security.xsd
+	http://www.springframework.org/schema/context
+  	http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <mvc:annotation-driven />
+    <context:component-scan base-package="com.homedirect.payd.webui.back.controller" />
+    <context:component-scan base-package="com.homedirect.payd.webui.back.transformer" />
+    <context:component-scan base-package="com.homedirect.payd.webui.back.config" />
+    <context:component-scan base-package="com.homedirect.payd.webui.back.validator" />
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="order" value="2" />
+        <property name="prefix" value="/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="order" value="1" />
+        <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
+    </bean>
+
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/tiles/definitions.xml</value>
+            </list>
+        </property>
+    </bean>
+
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+
+    <mvc:resources mapping="/bootstrap/**" location="/resources/bower_components/AdminLTE/bootstrap/" />
+    <mvc:resources mapping="/transaction/bootstrap/**" location="/resources/bower_components/AdminLTE/bootstrap/" />
+    <mvc:resources mapping="/account/bootstrap/**" location="/resources/bower_components/AdminLTE/bootstrap/" />
+    <mvc:resources mapping="/user/bootstrap/**" location="/resources/bower_components/AdminLTE/bootstrap/" />
+    <mvc:resources mapping="/otp/bootstrap/**" location="/resources/bower_components/AdminLTE/bootstrap/" />
+    <mvc:resources mapping="/statement/bootstrap/**" location="/resources/bower_components/AdminLTE/bootstrap/" />
+    <mvc:resources mapping="/export/bootstrap/**" location="/resources/bower_components/AdminLTE/bootstrap/" />
+
+    <mvc:resources mapping="/build/**" location="/resources/bower_components/AdminLTE/build/" />
+    <mvc:resources mapping="/transaction/build/**" location="/resources/bower_components/AdminLTE/build/" />
+    <mvc:resources mapping="/account/build/**" location="/resources/bower_components/AdminLTE/build/" />
+    <mvc:resources mapping="/user/build/**" location="/resources/bower_components/AdminLTE/build/" />
+    <mvc:resources mapping="/otp/build/**" location="/resources/bower_components/AdminLTE/build/" />
+    <mvc:resources mapping="/statement/build/**" location="/resources/bower_components/AdminLTE/build/" />
+    <mvc:resources mapping="/export/build/**" location="/resources/bower_components/AdminLTE/build/" />
+
+    <mvc:resources mapping="/dist/**" location="/resources/bower_components/AdminLTE/dist/" />
+    <mvc:resources mapping="/transaction/dist/**" location="/resources/bower_components/AdminLTE/dist/" />
+    <mvc:resources mapping="/account/dist/**" location="/resources/bower_components/AdminLTE/dist/" />
+    <mvc:resources mapping="/user/dist/**" location="/resources/bower_components/AdminLTE/dist/" />
+    <mvc:resources mapping="/otp/dist/**" location="/resources/bower_components/AdminLTE/dist/" />
+    <mvc:resources mapping="/statement/dist/**" location="/resources/bower_components/AdminLTE/dist/" />
+    <mvc:resources mapping="/export/dist/**" location="/resources/bower_components/AdminLTE/dist/" />
+
+    <mvc:resources mapping="/plugins/**" location="/resources/bower_components/AdminLTE/plugins/" />
+    <mvc:resources mapping="/transaction/plugins/**" location="/resources/bower_components/AdminLTE/plugins/" />
+    <mvc:resources mapping="/account/plugins/**" location="/resources/bower_components/AdminLTE/plugins/" />
+    <mvc:resources mapping="/user/plugins/**" location="/resources/bower_components/AdminLTE/plugins/" />
+    <mvc:resources mapping="/otp/plugins/**" location="/resources/bower_components/AdminLTE/plugins/" />
+    <mvc:resources mapping="/statement/plugins/**" location="/resources/bower_components/AdminLTE/plugins/" />
+    <mvc:resources mapping="/export/plugins/**" location="/resources/bower_components/AdminLTE/plugins/" />
+
+    <mvc:resources mapping="/css/**" location="/resources/css/" />
+    <mvc:resources mapping="/transaction/css/**" location="/resources/css/" />
+    <mvc:resources mapping="/account/css/**" location="/resources/css/" />
+    <mvc:resources mapping="/user/css/**" location="/resources/css/" />
+    <mvc:resources mapping="/otp/css/**" location="/resources/css/" />
+    <mvc:resources mapping="/statement/css/**" location="/resources/css/" />
+    <mvc:resources mapping="/export/css/**" location="/resources/css/" />
+
+    <mvc:resources mapping="/js/**" location="/resources/js/" />
+    <mvc:resources mapping="/transaction/js/**" location="/resources/js/" />
+    <mvc:resources mapping="/account/js/**" location="/resources/js/" />
+    <mvc:resources mapping="/user/js/**" location="/resources/js/" />
+    <mvc:resources mapping="/otp/js/**" location="/resources/js/" />
+    <mvc:resources mapping="/statement/js/**" location="/resources/js/" />
+    <mvc:resources mapping="/export/js/**" location="/resources/js/" />
+
+    <mvc:resources mapping="/images/**" location="/resources/images/" />
+    <mvc:resources mapping="/transaction/images/**" location="/resources/images/" />
+    <mvc:resources mapping="/account/images/**" location="/resources/images/" />
+    <mvc:resources mapping="/user/images/**" location="/resources/images/" />
+    <mvc:resources mapping="/otp/images/**" location="/resources/images/" />
+    <mvc:resources mapping="/statement/images/**" location="/resources/images/" />
+    <mvc:resources mapping="/export/images/**" location="/resources/images/" />
+
+    <mvc:resources mapping="/json/**" location="/resources/json/" />
+    <mvc:resources mapping="/transaction/json/**" location="/resources/json/" />
+
+    <bean scope="singleton" id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages" />
+    </bean>
+
+    <bean id="requestConfigBuilder" class="org.apache.http.client.config.RequestConfig" factory-method="custom">
+        <property name="socketTimeout" value="30000" />
+        <property name="connectTimeout" value="30000" />
+    </bean>
+
+    <bean id="defaultHttpRequestRetryHandler" class="org.apache.http.impl.client.DefaultHttpRequestRetryHandler">
+        <constructor-arg type ="int" value ="5"/>
+        <constructor-arg type ="boolean" value ="true"/>
+    </bean>
+
+    <bean id="requestConfig" factory-bean="requestConfigBuilder" factory-method="build" />
+
+    <bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder" factory-method="create">
+        <property name="defaultRequestConfig" ref="requestConfig" />
+        <property name="retryHandler" ref="defaultHttpRequestRetryHandler"/>
+        <property name="keepAliveStrategy">
+            <bean id="connectionKeepAliveStrategyCustomization" class="com.homedirect.common.connection.ConnectionKeepAliveStrategyCustomization" />
+        </property>
+    </bean>
+
+    <bean id="httpClient" factory-bean="httpClientBuilder" factory-method="build" />
+
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+        <constructor-arg>
+            <bean class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory">
+                <constructor-arg ref="httpClient" />
+            </bean>
+        </constructor-arg>
+    </bean>
+
+</beans>
