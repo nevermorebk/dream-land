@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/dream-land.iml" filepath="$PROJECT_DIR$/dream-land.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dream-land-api-font/dream-land-api-font.iml" filepath="$PROJECT_DIR$/dream-land-api-font/dream-land-api-font.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dream-land-common/dream-land-common.iml" filepath="$PROJECT_DIR$/dream-land-common/dream-land-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dream-land-font/dream-land-font.iml" filepath="$PROJECT_DIR$/dream-land-font/dream-land-font.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dream-land-model/dream-land-model.iml" filepath="$PROJECT_DIR$/dream-land-model/dream-land-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dream-land-service/dream-land-service.iml" filepath="$PROJECT_DIR$/dream-land-service/dream-land-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dream-land-storage/dream-land-storage.iml" filepath="$PROJECT_DIR$/dream-land-storage/dream-land-storage.iml" />
+    </modules>
+  </component>
+</project>
