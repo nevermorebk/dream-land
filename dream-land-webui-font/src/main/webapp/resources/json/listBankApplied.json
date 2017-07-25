@@ -1,0 +1,38 @@
+[
+	{
+		"bankId": 202,
+		"fullName": "NH DAU TU VA PHAT TRIEN VIET NAM (BIDV)",
+		"shortName": "BIDV"
+	},
+	{
+		"bankId": 203,
+		"fullName": "NH TMCP NGOAI THUONG VIET NAM (VCB)",
+		"shortName": "VCB"
+	},
+	{
+		"bankId": 302,
+		"fullName": "NH TMCP HANG HAI VIET NAM (MSB)",
+		"shortName": "MSB"
+	},
+	{
+		"bankId": 303,
+		"fullName": "NH TMCP SAI GON THUONG TIN (SACOMBANK)",
+		"shortName": "SACOMBANK"
+	},
+	{
+		"bankId": 307,
+		"fullName": "NH TMCP A CHAU (ACB)",
+		"shortName": "ACB"
+	},
+	{
+		"bankId": 309,
+		"count": 0,
+		"fullName": "NH TMCP VIET NAM THINH VUONG (VPBANK)",
+		"shortName": "VPBANK"
+	},
+	{
+		"bankId": 310,
+		"fullName": "NH TMCP KY THUONG VIET NAM (TCB)",
+		"shortName": "TCB"
+	}
+]

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<!-- Layout Define -->
+	<definition name="layout.definition" template="/resources/jsp/layouts/_basic.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/resources/jsp/layouts/_header.jsp" />
+		<put-attribute name="sidebar" value="/resources/jsp/layouts/_sidebar.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/resources/jsp/layouts/_footer.jsp" />
+		<put-list-attribute name="stylesheets">
+			<add-attribute value="/bootstrap/css/bootstrap.min.css" />
+			<add-attribute value="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+			<add-attribute value="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+			<add-attribute value="/plugins/select2/select2.min.css" />
+			<add-attribute value="/dist/css/AdminLTE.min.css" />
+			<add-attribute value="/dist/css/skins/_all-skins.min.css" />
+			<add-attribute value="/plugins/pace/pace.min.css" />
+			<add-attribute value="/css/custom.css" />
+		</put-list-attribute>
+		<put-list-attribute name="scripts">
+			<add-attribute value="/plugins/jQuery/jquery-2.2.3.min.js" />
+			<add-attribute value="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" />
+			<add-attribute value="/js/resolve-conflict.js" />
+			<add-attribute value="bootstrap/js/bootstrap.min.js" />
+			<add-attribute value="/plugins/pace/pace.min.js" />
+			<add-attribute value="/plugins/slimScroll/jquery.slimscroll.min.js" />
+			<add-attribute value="/plugins/fastclick/fastclick.js" />
+			<add-attribute value="/dist/js/app.min.js" />
+			<add-attribute value="/js/common.js" />
+		</put-list-attribute>
+	</definition>
+	
+	<!-- Error Page -->
+	<definition name="error.*" extends="layout.definition">
+		<put-attribute name="title" value="Lỗi!!!" />
+		<put-attribute name="body" value="/resources/jsp/views/error/{1}.jsp" />
+		<put-list-attribute name="stylesheets" inherit="true" />
+		<put-list-attribute name="scripts" inherit="true" />
+	</definition>
+	
+	<!-- Login Page -->
+	<definition name="login.index" template="/resources/jsp/views/login/index.jsp">
+		<put-attribute name="title" value="PAYDEE - Đăng nhập hệ thống" />
+		<put-list-attribute name="stylesheets">
+			<add-attribute value="/bootstrap/css/bootstrap.min.css" />
+			<add-attribute value="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+			<add-attribute value="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+			<add-attribute value="/dist/css/AdminLTE.min.css" />
+			<add-attribute value="/plugins/iCheck/square/blue.css" />
+			<add-attribute value="/css/custom.css" />
+		</put-list-attribute>
+		<put-list-attribute name="scripts">
+			<add-attribute value="/plugins/jQuery/jquery-2.2.3.min.js" />
+			<add-attribute value="/bootstrap/js/bootstrap.min.js" />
+			<add-attribute value="/plugins/iCheck/icheck.min.js" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- Home Page -->
+	<definition name="home.*" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Trang chủ quản trị" />
+		<put-attribute name="body" value="/resources/jsp/views/home/{1}.jsp" />
+		<put-list-attribute name="stylesheets" inherit="true" />
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="/js/home/home.{1}.js" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- Charging Page -->
+	<definition name="charging.*" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Giao dịch nạp tiền bằng thẻ cào" />
+		<put-attribute name="body" value="/resources/jsp/views/transaction/charging.{1}.jsp" />
+		<put-list-attribute name="stylesheets" inherit="true">
+			<add-attribute value="/plugins/datepicker/datepicker3.css" />
+		</put-list-attribute>
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="/plugins/datepicker/bootstrap-datepicker.js" />
+			<add-attribute value="/plugins/datepicker/locales/bootstrap-datepicker.vi.js" />
+			<add-attribute value="/plugins/select2/select2.full.min.js" />
+			<add-attribute value="/js/transaction/transaction.common.js" />
+			<add-attribute value="/js/transaction/charging.js" />
+			<add-attribute value="/js/transaction/charging.{1}.js" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- Deposit Page -->
+	<definition name="deposit.*" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Giao dịch nạp tiền từ bank" />
+		<put-attribute name="body" value="/resources/jsp/views/transaction/deposit.{1}.jsp" />
+		<put-list-attribute name="stylesheets" inherit="true">
+			<add-attribute value="/plugins/datepicker/datepicker3.css" />
+		</put-list-attribute>
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="/plugins/datepicker/bootstrap-datepicker.js" />
+			<add-attribute value="/plugins/datepicker/locales/bootstrap-datepicker.vi.js" />
+			<add-attribute value="/plugins/select2/select2.full.min.js" />
+			<add-attribute value="/js/transaction/transaction.common.js" />
+			<add-attribute value="/js/transaction/deposit.js" />
+			<add-attribute value="/js/transaction/deposit.{1}.js" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="withdraw" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Lịch sử rút tiền qua Đại lý" />
+		<put-attribute name="body" value="/resources/jsp/views/transaction/withdraw.view.jsp" />
+		<put-list-attribute name="stylesheets" inherit="true">
+			<add-attribute value="/plugins/datepicker/datepicker3.css" />
+		</put-list-attribute>
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="/plugins/datepicker/bootstrap-datepicker.js" />
+			<add-attribute value="/plugins/datepicker/locales/bootstrap-datepicker.vi.js" />
+			<add-attribute value="/plugins/select2/select2.full.min.js" />
+			<add-attribute value="/js/transaction/transaction.common.js" />
+			<add-attribute value="/js/transaction/withdraw.view.js" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- Transfer Page -->
+	<definition name="transfer.*" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Giao dịch chuyển tiền" />
+		<put-attribute name="body" value="/resources/jsp/views/transaction/transfer.{1}.jsp" />
+		<put-list-attribute name="stylesheets" inherit="true">
+			<add-attribute value="/plugins/datepicker/datepicker3.css" />
+		</put-list-attribute>
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="/plugins/datepicker/bootstrap-datepicker.js" />
+			<add-attribute value="/plugins/datepicker/locales/bootstrap-datepicker.vi.js" />
+			<add-attribute value="/plugins/select2/select2.full.min.js" />
+			<add-attribute value="/js/tableExport/xlsx.core.js" />
+			<add-attribute value="/js/tableExport/Blob.js" />
+			<add-attribute value="/js/tableExport/FileSaver.js" />
+			<add-attribute value="/js/tableExport/tableexport.js" />
+			<add-attribute value="/js/transaction/transfer.js" />
+			<add-attribute value="/js/transaction/transfer.{1}.js" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- Buy Card Telco Page -->
+	<definition name="buycardtelco.*" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Giao dịch mua thẻ điện thoại" />
+		<put-attribute name="body" value="/resources/jsp/views/transaction/buycardtelco.{1}.jsp" />
+		<put-list-attribute name="stylesheets" inherit="true">
+			<add-attribute value="/plugins/datepicker/datepicker3.css" />
+		</put-list-attribute>
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="/plugins/datepicker/bootstrap-datepicker.js" />
+			<add-attribute value="/plugins/datepicker/locales/bootstrap-datepicker.vi.js" />
+			<add-attribute value="/plugins/select2/select2.full.min.js" />
+			<add-attribute value="/js/transaction/transaction.common.js" />
+			<add-attribute value="/js/transaction/buycardtelco.js" />
+			<add-attribute value="/js/transaction/buycardtelco.{1}.js" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- Topup Telco Page -->
+	<definition name="topuptelco.*" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Giao dịch nạp tiền điện thoại" />
+		<put-attribute name="body" value="/resources/jsp/views/transaction/topuptelco.{1}.jsp" />
+		<put-list-attribute name="stylesheets" inherit="true">
+			<add-attribute value="/plugins/datepicker/datepicker3.css" />
+		</put-list-attribute>
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="/plugins/datepicker/bootstrap-datepicker.js" />
+			<add-attribute value="/plugins/datepicker/locales/bootstrap-datepicker.vi.js" />
+			<add-attribute value="/plugins/select2/select2.full.min.js" />
+			<add-attribute value="/js/transaction/transaction.common.js" />
+			<add-attribute value="/js/transaction/topuptelco.js" />
+			<add-attribute value="/js/transaction/topuptelco.{1}.js" />
+		</put-list-attribute>
+	</definition>
+	
+	<!-- Topup Account Page -->
+	<definition name="topupaccount.*" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Giao dịch bù trừ tiền" />
+		<put-attribute name="body" value="/resources/jsp/views/transaction/topupaccount.{1}.jsp" />
+		<put-list-attribute name="stylesheets" inherit="true">
+			<add-attribute value="/plugins/datepicker/datepicker3.css" />
+		</put-list-attribute>
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="/plugins/datepicker/bootstrap-datepicker.js" />
+			<add-attribute value="/plugins/datepicker/locales/bootstrap-datepicker.vi.js" />
+			<add-attribute value="/plugins/select2/select2.full.min.js" />
+			<add-attribute value="/js/account/account.common.js" />
+			<add-attribute value="/js/transaction/transaction.common.js" />
+			<add-attribute value="/js/transaction/topupaccount.js" />
+			<add-attribute value="/js/transaction/topupaccount.{1}.js" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- Cheque Page-->
+	<definition name="cheque.view" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Sao kê tài khoản" />
+		<put-attribute name="body" value="/resources/jsp/views/transaction/cheque.view.jsp" />
+		<put-list-attribute name="stylesheets" inherit="true">
+			<add-attribute value="/plugins/datepicker/datepicker3.css" />
+		</put-list-attribute>
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="/plugins/datepicker/bootstrap-datepicker.js" />
+			<add-attribute value="/plugins/datepicker/locales/bootstrap-datepicker.vi.js" />
+			<add-attribute value="/plugins/select2/select2.full.min.js" />
+			<add-attribute value="/js/transaction/transaction.common.js" />
+			<add-attribute value="/js/transaction/cheque.view.js" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- Balance Page-->
+	<definition name="balance.view" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Số dư tài khoản" />
+		<put-attribute name="body" value="/resources/jsp/views/transaction/balance.view.jsp" />
+		<put-list-attribute name="stylesheets" inherit="true">
+			<add-attribute value="/plugins/datepicker/datepicker3.css" />
+		</put-list-attribute>
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="/plugins/datepicker/bootstrap-datepicker.js" />
+			<add-attribute value="/plugins/datepicker/locales/bootstrap-datepicker.vi.js" />
+			<add-attribute value="/plugins/select2/select2.full.min.js" />
+			<add-attribute value="/js/transaction/transaction.common.js" />
+			<add-attribute value="/js/transaction/balance.view.js" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- Account Page -->
+	<definition name="account.*" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Quản lý tài khoản ví" />
+		<put-attribute name="body" value="/resources/jsp/views/account/account.{1}.jsp" />
+		<put-list-attribute name="stylesheets" inherit="true">
+			<add-attribute value="/plugins/datepicker/datepicker3.css" />
+		</put-list-attribute>
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="/plugins/datepicker/bootstrap-datepicker.js" />
+			<add-attribute value="/plugins/datepicker/locales/bootstrap-datepicker.vi.js" />
+			<add-attribute value="/plugins/select2/select2.full.min.js" />
+			<add-attribute value="/js/account/account.js" />
+			<add-attribute value="/js/thirds/bootbox.min.js" />
+			<add-attribute value="/js/account/account.{1}.js" />
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="cheque.detail" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Sao kê chi tiết" />
+		<put-attribute name="body" value="/resources/jsp/views/account/account.cheque.detail.jsp" />
+		<put-list-attribute name="stylesheets" inherit="true">
+			<add-attribute value="/plugins/datepicker/datepicker3.css" />
+		</put-list-attribute>
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="/plugins/datepicker/bootstrap-datepicker.js" />
+			<add-attribute value="/plugins/datepicker/locales/bootstrap-datepicker.vi.js" />
+			<add-attribute value="/plugins/select2/select2.full.min.js" />
+			<add-attribute value="/js/account/account.common.js" />
+			<add-attribute value="/js/transaction/transaction.common.js" />
+			<add-attribute value="/js/account/account.cheque.detail.js" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- User Page -->
+	<definition name="user.*" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Quản lý người dùng" />
+		<put-attribute name="body" value="/resources/jsp/views/user/user.{1}.jsp" />
+		<put-list-attribute name="stylesheets" inherit="true">
+			<add-attribute value="/plugins/datepicker/datepicker3.css" />
+		</put-list-attribute>
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="plugins/datepicker/bootstrap-datepicker.js" />
+			<add-attribute value="/plugins/datepicker/locales/bootstrap-datepicker.vi.js" />
+			<add-attribute value="/plugins/select2/select2.full.min.js" />
+			<add-attribute value="js/user/user.js" />
+			<add-attribute value="js/user/user.{1}.js" />
+		</put-list-attribute>
+	</definition>
+	
+	<!-- OTP Page -->
+	<definition name="otp.view" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Quản lý OTP" />
+		<put-attribute name="body" value="/resources/jsp/views/otp/otp.view.jsp" />
+		<put-list-attribute name="stylesheets" inherit="true">
+			<add-attribute value="/plugins/datepicker/datepicker3.css" />
+		</put-list-attribute>
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="/plugins/datepicker/bootstrap-datepicker.js" />
+			<add-attribute value="/plugins/datepicker/locales/bootstrap-datepicker.vi.js" />
+			<add-attribute value="/plugins/select2/select2.full.min.js" />
+			<add-attribute value="/js/thirds/bootbox.min.js" />
+			<add-attribute value="/js/account/account.common.js" />
+			<add-attribute value="/js/otp/otp.js" />
+			<add-attribute value="/js/otp/otp.view.js" />
+		</put-list-attribute>
+	</definition>
+	
+	<!-- Statement Clearing Page -->
+	<definition name="add-cast" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Nghiệp vụ bù trừ tiền" />
+		<put-attribute name="body" value="/resources/jsp/views/statement/add-cast.view.jsp" />
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="/plugins/select2/select2.full.min.js" />
+			<add-attribute value="/js/account/account.common.js" />
+			<add-attribute value="/js/thirds/bootbox.min.js" />
+			<add-attribute value="/js/statement/add-cast.view.js" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="update-charging" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Nghiệp vụ Cập nhật giao dịch Nộp tiền mặt" />
+		<put-attribute name="body" value="/resources/jsp/views/statement/update-charging.jsp" />
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="/plugins/select2/select2.full.min.js" />
+			<add-attribute value="/js/account/account.common.js" />
+			<add-attribute value="/js/thirds/bootbox.min.js" />
+			<add-attribute value="/js/statement/update-charging.js" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="update-topup" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Nghiệp vụ Cập nhật giao dịch Topup" />
+		<put-attribute name="body" value="/resources/jsp/views/statement/update-topup.jsp" />
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="/plugins/select2/select2.full.min.js" />
+			<add-attribute value="/js/account/account.common.js" />
+			<add-attribute value="/js/thirds/bootbox.min.js" />
+			<add-attribute value="/js/statement/update-topup.js" />
+		</put-list-attribute>
+	</definition>
+	
+	<!-- Offset Transaction Page -->
+	<definition name="offset" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Lịch sử bù trừ GQKN" />
+		<put-attribute name="body" value="/resources/jsp/views/transaction/offset.view.jsp" />
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="/plugins/datepicker/bootstrap-datepicker.js" />
+			<add-attribute value="/plugins/datepicker/locales/bootstrap-datepicker.vi.js" />
+			<add-attribute value="/plugins/select2/select2.full.min.js" />
+			<add-attribute value="/js/transaction/transaction.common.js" />
+			<add-attribute value="/js/transaction/offset.view.js" />
+		</put-list-attribute>
+	</definition>
+	
+	<!-- Export -->
+	<definition name="export.*" extends="layout.definition">
+		<put-attribute name="title" value="PAYDEE - Quản lý file" />
+		<put-attribute name="body" value="/resources/jsp/views/export/export.{1}.jsp" />
+		<put-list-attribute name="scripts" inherit="true">
+			<add-attribute value="js/export/export.js" />
+			<add-attribute value="js/export/export.{1}.js" />
+		</put-list-attribute>
+	</definition>
+</tiles-definitions>

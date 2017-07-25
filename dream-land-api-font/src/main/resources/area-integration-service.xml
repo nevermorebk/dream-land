@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns="http://www.springframework.org/schema/integration"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/integration
+			http://www.springframework.org/schema/integration/spring-integration.xsd">
+
+    <gateway id="areaGateway"
+             service-interface="com.spring.dland.fontend.gateway.AreaGateway"
+             default-reply-timeout="30000">
+        <method name="add" request-channel="area-add-channel"/>
+<!--        <method name="update" request-channel="product-update-channel"/>
+        <method name="setStatus" request-channel="product-set-status-channel"/>
+        <method name="get" request-channel="product-get-channel"/>
+        <method name="list" request-channel="product-list-channel"/>-->
+    </gateway>
+
+    <channel id="area-add-channel"/>
+    <chain input-channel="area-add-channel">
+        <filter ref="dataInputAreaValidator" throw-exception-on-rejection="true" method="validateAdd"/>
+        <filter ref="securityAreaValidator" method="validateAdd"/>
+        <filter ref="storageAreaValidator" throw-exception-on-rejection="true" method="validateAdd"/>
+        <transformer ref="areaTransformer" method="convertToArea"/>
+        <service-activator ref="areaService" method="add"/>
+    </chain>
+
+    <!--<channel id="product-update-channel"/>
+    <chain input-channel="product-update-channel">
+        <filter ref="dataInputProductValidator" throw-exception-on-rejection="true" method="validateUpdate"/>
+        <filter ref="securityProductValidator" method="validateUpdate"/>
+        <filter ref="storageProductValidator" throw-exception-on-rejection="true" method="validateUpdate"/>
+        <transformer ref="dataTransformer" method="convertToData"/>
+        <service-activator ref="productService" method="add"/>
+    </chain>
+
+    <channel id="product-get-channel"/>
+    <chain input-channel="product-get-channel">
+        <filter ref="dataInputProductValidator" method="validateGet"/>
+        <filter ref="securityProductValidator" method="validateGet"/>
+        <filter ref="storageProductValidator" method="validateGet"/>
+        <transformer ref="dataTransformer" method="convertToData"/>
+        <service-activator ref="productService" method="get"/>
+    </chain>
+
+    <channel id="product-set-status-channel"/>
+    <chain input-channel="product-set-status-channel">
+        <filter ref="dataInputProductValidator" throw-exception-on-rejection="true" method="validateSetStatus"/>
+        <filter ref="securityProductValidator" method="validateSetStatus"/>
+        <filter ref="storageProductValidator" throw-exception-on-rejection="true" method="validateSetStatus"/>
+        <transformer ref="dataTransformer" method="convertToData"/>
+        <service-activator ref="productService" method="setStatus"/>
+    </chain>
+
+    <channel id="product-list-channel"/>
+    <chain input-channel="product-list-channel">
+        <filter ref="dataInputProductValidator" throw-exception-on-rejection="true" method="validateList"/>
+        <filter ref="securityProductValidator" method="validateList"/>
+        <filter ref="storageProductValidator" throw-exception-on-rejection="true" method="validateList"/>
+        <transformer ref="dataTransformer" method="convertToData"/>
+        <service-activator ref="productService" method="list"/>
+    </chain>-->
+
+    <!-- filter -->
+    <beans:bean id="dataInputAreaValidator"
+                class="com.spring.dland.fontend.validator.DataInputAreaValidator"/>
+    <beans:bean id="storageAreaValidator"
+                class="com.spring.dland.filter.storage.StorageAreaValidator"/>
+
+    <!-- security -->
+    <beans:bean id="securityAreaValidator"
+                class="com.spring.dland.filter.security.SecurityAreaValidator"/>
+
+    <beans:bean id="areaService" class="com.spring.dland.service.impl.AreaServiceImpl"/>
+
+    <beans:bean id="areaTransformer" class="com.spring.dland.transformer.impl.AreaTransformerImpl"/>
+
+</beans:beans>

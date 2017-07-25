@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:int="http://www.springframework.org/schema/integration"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc
+  	http://www.springframework.org/schema/mvc/spring-mvc.xsd    
+    http://www.springframework.org/schema/integration 
+	http://www.springframework.org/schema/integration/spring-integration.xsd">
+
+	<context:annotation-config />
+	<mvc:annotation-driven />
+
+	<!--<context:component-scan base-package="com.homedirect.common.service.export" />-->
+	<context:component-scan
+		base-package="com.spring.dland.storage.configuration" />
+	<context:component-scan
+		base-package="com.spring.dland.storage.mongodb" />
+	<context:component-scan
+		base-package="com.spring.dland.storage.mysql" />
+	<context:component-scan base-package="com.spring.dland.core.controller" />
+
+	<context:component-scan base-package="com.spring.dland.core.gateway" />
+	<!--<context:component-scan base-package="com.homedircustomerect.payd.common.controller" />-->
+
+	<!--<context:component-scan base-package="com.homedirect.repo.service.*" />-->
+	<!--<context:component-scan base-package="com.homedirect.repo.security.*" />-->
+	<!--<context:component-scan base-package="com.homedirect.repo.auth" />-->
+
+	<!--<context:component-scan base-package="com.homedirect.payd.service.*" />-->
+	<!--<context:component-scan base-package="com.homedirect.payd.validator" />-->
+	<!--<context:component-scan base-package="com.homedirect.payd.job" />-->
+	<!--<context:component-scan base-package="com.homedirect.payd.job" />-->
+
+</beans>

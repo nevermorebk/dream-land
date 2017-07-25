@@ -12,10 +12,10 @@
   	http://www.springframework.org/schema/context/spring-context.xsd">
 
     <mvc:annotation-driven />
-    <context:component-scan base-package="com.homedirect.payd.webui.back.controller" />
-    <context:component-scan base-package="com.homedirect.payd.webui.back.transformer" />
-    <context:component-scan base-package="com.homedirect.payd.webui.back.config" />
-    <context:component-scan base-package="com.homedirect.payd.webui.back.validator" />
+    <context:component-scan base-package="com.spring.dland.webui.font.controller" />
+    <context:component-scan base-package="com.spring.dland.webui.font.transformer" />
+    <context:component-scan base-package="com.spring.dland.webui.font.ultis" />
+    <!--<context:component-scan base-package="com.homedirect.payd.webui.back.validator" />-->
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="order" value="2" />
@@ -23,7 +23,7 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
-    <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+    <!--<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <property name="order" value="1" />
         <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
     </bean>
@@ -129,6 +129,6 @@
                 <constructor-arg ref="httpClient" />
             </bean>
         </constructor-arg>
-    </bean>
+    </bean>-->
 
 </beans>
